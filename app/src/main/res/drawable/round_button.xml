@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:color="#000"
+        android:width="1dip"/>
+    <size android:width="100dp" android:height="100dp"/>
+    <solid android:color="#00000000" /> <!-- Add a transparent fill color -->
+</shape>
