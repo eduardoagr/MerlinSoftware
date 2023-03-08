@@ -13,7 +13,7 @@ import com.example.merlinsoftware.R
 import com.example.merlinsoftware.databinding.ActivityDetailEpisodeBinding
 import com.example.merlinsoftware.databinding.ItemRowBinding
 
-class PodcastAdapter(private val podcasts: List<Podcast>) : RecyclerView.Adapter<PodcastAdapter.ViewHolder>() {
+class PodcastAdapter : RecyclerView.Adapter<PodcastAdapter.ViewHolder>() {
 
     private lateinit var binding: ItemRowBinding
     private lateinit var context: Context
@@ -30,7 +30,7 @@ class PodcastAdapter(private val podcasts: List<Podcast>) : RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int {
-        return podcasts.size
+       return differ.currentList.size
     }
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {

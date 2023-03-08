@@ -3,7 +3,7 @@ package com.example.merlinsoftware.Model
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class Podcast(
-    val feed: Feed
+    val feed: List<Feed>
 )
 {
     data class Feed(

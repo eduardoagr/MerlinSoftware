@@ -8,9 +8,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-interface ITunesAPI {
+interface ApiServices {
     @get:GET("rss/toppodcasts/limit=100/genre=1310/json")
-    val topPodcasts: Call<Podcast>
+    val getTopPodcasts: Call<Podcast>
 
     @GET("lookup")
     fun getPodcastDetails(@Query("id") podcastId: String?): Call<PodcastDetail>
