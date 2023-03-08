@@ -1,4 +1,4 @@
-package com.example.merlinsoftware.Services
+package com.example.merlinsoftware.services
 
 import android.content.Context
 import okhttp3.Cache

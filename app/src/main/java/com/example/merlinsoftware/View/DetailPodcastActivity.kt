@@ -1,4 +1,4 @@
-package com.example.merlinsoftware.View
+package com.example.merlinsoftware.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

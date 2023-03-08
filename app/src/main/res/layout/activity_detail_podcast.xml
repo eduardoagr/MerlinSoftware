@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textAlignment="center"
-    tools:context=".View.DetailPodcastActivity">
+    tools:context=".view.DetailPodcastActivity">
 
     <ImageView
         android:id="@+id/podcast_detail_image"

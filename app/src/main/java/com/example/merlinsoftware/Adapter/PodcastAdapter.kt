@@ -1,16 +1,12 @@
-package com.example.merlinsoftware.Adapter
+package com.example.merlinsoftware.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.merlinsoftware.Model.Podcast
-import com.example.merlinsoftware.R
-import com.example.merlinsoftware.databinding.ActivityDetailEpisodeBinding
+import com.example.merlinsoftware.model.Podcast
 import com.example.merlinsoftware.databinding.ItemRowBinding
 
 class PodcastAdapter : RecyclerView.Adapter<PodcastAdapter.ViewHolder>() {

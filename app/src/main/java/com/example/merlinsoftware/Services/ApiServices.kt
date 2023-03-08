@@ -1,12 +1,11 @@
-package com.example.merlinsoftware.Services
+package com.example.merlinsoftware.services
 
-import com.example.merlinsoftware.Model.Podcast
-import com.example.merlinsoftware.Model.PodcastDetail
-import com.example.merlinsoftware.Model.PodcastEpisodeDetail
+import com.example.merlinsoftware.model.Podcast
+import com.example.merlinsoftware.model.PodcastDetail
+import com.example.merlinsoftware.model.PodcastEpisodeDetail
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
-
 
 interface ApiServices {
     @get:GET("rss/toppodcasts/limit=100/genre=1310/json")

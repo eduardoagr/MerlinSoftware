@@ -1,4 +1,4 @@
-package com.example.merlinsoftware.Model
+package com.example.merlinsoftware.model
 
 data class PodcastEpisodeDetail(
     val resultCount: Long,

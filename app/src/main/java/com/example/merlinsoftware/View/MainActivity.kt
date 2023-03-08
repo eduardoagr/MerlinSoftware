@@ -1,14 +1,14 @@
-package com.example.merlinsoftware.View
+package com.example.merlinsoftware.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.merlinsoftware.Adapter.PodcastAdapter
-import com.example.merlinsoftware.Model.Podcast
-import com.example.merlinsoftware.Services.ApiClient
-import com.example.merlinsoftware.Services.ApiServices
+import com.example.merlinsoftware.adapter.PodcastAdapter
+import com.example.merlinsoftware.model.Podcast
+import com.example.merlinsoftware.services.ApiClient
+import com.example.merlinsoftware.services.ApiServices
 import com.example.merlinsoftware.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Response
@@ -50,15 +50,12 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
                         }
-                        in 300..399 -> {
-                            Log.d("Response Code", " Redirection messages : ${response.code()}")
-                        }
-                        in 400..499 -> {
-                            Log.d("Response Code", " Client error responses : ${response.code()}")
-                        }
-                        in 500..599 -> {
-                            Log.d("Response Code", " Server error responses : ${response.code()}")
-                        }
+                        // redirection response
+                        in 300..399->{}
+                        // client error response
+                        in 400..499 ->{}
+                        // server error response
+                        in 500..599->{}
                     }
                 }
 

@@ -14,16 +14,13 @@
         android:theme="@style/Theme.MerlinSoftware"
         tools:targetApi="31">
         <activity
-            android:name=".View.DetailEpisodeActivity"
+            android:name=".view.DetailEpisodeActivity"
             android:exported="false" />
         <activity
-            android:name=".View.DetailPodcastActivity"
+            android:name=".view.DetailPodcastActivity"
             android:exported="false" />
         <activity
-            android:name=".Detail_podcast"
-            android:exported="false" />
-        <activity
-            android:name=".View.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
