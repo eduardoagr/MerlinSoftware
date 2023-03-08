@@ -33,6 +33,10 @@ class PodcastAdapter : RecyclerView.Adapter<PodcastAdapter.ViewHolder>() {
        return differ.currentList.size
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Podcast.Feed){
