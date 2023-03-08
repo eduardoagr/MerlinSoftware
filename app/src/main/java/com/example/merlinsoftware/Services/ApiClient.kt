@@ -13,7 +13,6 @@ class ApiClient(context: Context) {
 
     private lateinit var retrofit: Retrofit
 
-
     private val cacheSize = 10 * 1024 * 1024 // 10 MB
     private val cache = Cache(context.cacheDir, cacheSize.toLong())
 

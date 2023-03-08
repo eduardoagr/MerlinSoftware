@@ -3,7 +3,7 @@ package com.example.merlinsoftware.model
 data class PodcastEpisodeDetail(
     val resultCount: Long,
     val results: List<EpisodeInfo>,
-) {
+)
     data class EpisodeInfo(
         val wrapperType: String,
         val kind: String,
@@ -48,4 +48,3 @@ data class PodcastEpisodeDetail(
         val previewUrl: String?,
         val episodeGuid: String?,
     )
-}

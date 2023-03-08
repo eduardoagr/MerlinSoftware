@@ -1,58 +1,52 @@
 package com.example.merlinsoftware.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.merlinsoftware.model.Podcast
 import com.example.merlinsoftware.databinding.ItemRowBinding
+import com.example.merlinsoftware.model.Entry
+import com.example.merlinsoftware.model.Feed
 
 class PodcastAdapter : RecyclerView.Adapter<PodcastAdapter.ViewHolder>() {
 
     private lateinit var binding: ItemRowBinding
     private lateinit var context: Context
+    private var podcastList = emptyList<Entry>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemRowBinding.inflate(inflater, parent, false)
         context = parent.context
-        return ViewHolder()
+        return ViewHolder(binding.root)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(differ.currentList[position])
+        val item = podcastList[position]
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-       return differ.currentList.size
+        return podcastList.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return position
-    }
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: Podcast.Feed){
+        fun bind(item: Entry) {
             binding.apply {
                 itemRowTitle.text = item.title.label
-                itemRowAuthor.text = item.author.name.label
+                itemRowAuthor.text = item.imArtist.label
             }
         }
     }
 
-    private val differCallback = object : DiffUtil.ItemCallback<Podcast.Feed>() {
-
-        override fun areItemsTheSame(oldItem: Podcast.Feed, newItem: Podcast.Feed): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Podcast.Feed, newItem: Podcast.Feed): Boolean {
-            return oldItem == newItem
-        }
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(podcasts: List<Entry>) {
+        podcastList = podcasts
+        notifyDataSetChanged()
     }
-
-    val differ = AsyncListDiffer(this, differCallback)
 }
