@@ -1,7 +1,5 @@
 package com.example.merlinsoftware.model
-
-import com.fasterxml.jackson.annotation.JsonProperty
-
+import com.google.gson.annotations.SerializedName
 
 data class RootObj(
     val feed: Feed,
@@ -32,23 +30,23 @@ data class Uri(
 )
 
 data class Entry(
-    @JsonProperty("im:name")
+     @SerializedName("im:name")
     val imName: ImName,
-    @JsonProperty("im:image")
+     @SerializedName("im:image")
     val imImage: List<ImImage>,
     val summary: Summary,
-    @JsonProperty("im:price")
+     @SerializedName("im:price")
     val imPrice: ImPrice,
-    @JsonProperty("im:contentType")
+     @SerializedName("im:contentType")
     val imContentType: ImContentType,
     val rights: Rights?,
     val title: Title,
     val link: Link,
     val id: Id,
-    @JsonProperty("im:artist")
+     @SerializedName("im:artist")
     val imArtist: ImArtist,
     val category: Category,
-    @JsonProperty("im:releaseDate")
+     @SerializedName("im:releaseDate")
     val imReleaseDate: ImReleaseDate,
 )
 
@@ -112,7 +110,7 @@ data class Id(
 )
 
 data class Attributes5(
-    @JsonProperty("im:id")
+     @SerializedName("im:id")
     val imId: String,
 )
 
@@ -130,7 +128,7 @@ data class Category(
 )
 
 data class Attributes7(
-    @JsonProperty("im:id")
+     @SerializedName("im:id")
     val imId: String,
     val term: String,
     val scheme: String,

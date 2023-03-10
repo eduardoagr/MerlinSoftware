@@ -1,12 +1,19 @@
 package com.example.merlinsoftware.services
 
 import android.content.Context
+import android.util.Log
+import com.example.merlinsoftware.model.PodcastDetail
+import com.example.merlinsoftware.model.PodcastEpisodeDetail
+import com.example.merlinsoftware.model.RootObj
 import okhttp3.Cache
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 class ApiClient(context: Context) {
@@ -18,6 +25,8 @@ class ApiClient(context: Context) {
 
     private val requestIterceptor = Interceptor { chain ->
         val url = chain.request().url.newBuilder().build()
+
+        Log.d("API_Request", "URL: $url")
 
         val request = chain.request().newBuilder()
             .url(url)
@@ -48,4 +57,15 @@ class ApiClient(context: Context) {
         return retrofit
     }
 
+
+    interface ApiServices {
+        @GET("rss/toppodcasts/limit=100/genre=1310/json")
+        fun getTopPodcasts(): Call<RootObj>
+
+        @GET("lookup")
+        fun getPodcastDetails(@Query("id") podcastId: String?): Call<PodcastDetail>
+
+        @GET("lookup?entity=podcastEpisode&limit=9")
+        fun getPodcastEpisodes(@Query("id") podcastId: String?): Call<PodcastEpisodeDetail>
+    }
 }

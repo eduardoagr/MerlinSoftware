@@ -8,33 +8,71 @@
 
     <ImageView
         android:id="@+id/podcast_detail_episode_image"
-        android:layout_width="73dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="23dp"
-        app:layout_constraintBottom_toTopOf="@+id/podcast_detail_episode_author"
+        android:layout_width="189dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/podcast_detail_episode_desc"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/podcast_detail_episode_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="554dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/podcast_detail_episode_image"
-        app:layout_constraintTop_toBottomOf="@+id/podcast_detail_episode_author" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/podcast_detail_episode_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/podcast_detail_episode_title" />
+
+    <Button
+        android:id="@+id/podcast_detail_episode_play"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="108dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/baseline_play_arrow_24"
+        app:layout_constraintBaseline_toBaselineOf="@+id/podcast_detail_episode_stop"
+        app:layout_constraintEnd_toStartOf="@+id/podcast_detail_episode_stop" />
+
+    <Button
+        android:id="@+id/podcast_detail_episode_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="124dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/baseline_stop_24"
+        app:layout_constraintBottom_toTopOf="@+id/podcast_detail_episode_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/podcast_detail_episode_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/podcast_detail_episode_title"
-        app:layout_constraintStart_toStartOf="@+id/podcast_detail_episode_image"
-        app:layout_constraintTop_toBottomOf="@+id/podcast_detail_episode_image" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
