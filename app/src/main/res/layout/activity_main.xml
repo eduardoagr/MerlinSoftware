@@ -7,11 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
 
     <SearchView
         android:id="@+id/main_searchView"
         android:layout_width="409dp"
         android:layout_height="0dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

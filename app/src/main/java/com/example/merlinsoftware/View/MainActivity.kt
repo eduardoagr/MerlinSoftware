@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.widget.ProgressBar
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.merlinsoftware.R
 import com.example.merlinsoftware.adapter.PodcastAdapter
 import com.example.merlinsoftware.services.ApiClient
 import com.example.merlinsoftware.databinding.ActivityMainBinding
@@ -17,6 +21,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityMainBinding
     private val podcastAdapter by lazy { PodcastAdapter(this) }
     private val api: ApiClient.ApiServices by lazy {
@@ -25,8 +30,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val appTitle = binding.header.appTitle
+        appTitle.setOnClickListener {
+            // Navigate to the main view of the app
+        }
 
         // show loading
         binding.mainProgressBar.visibility = View.VISIBLE

@@ -1,10 +1,13 @@
 package com.example.merlinsoftware.view
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.widget.ProgressBar
 import com.bumptech.glide.Glide
 import com.example.merlinsoftware.R
 import com.example.merlinsoftware.databinding.ActivityDetailEpisodeBinding
@@ -21,9 +24,10 @@ class DetailEpisodeActivity : AppCompatActivity(),View.OnClickListener{
     private var mp3Url = ""
     private var mediaPlayer: MediaPlayer? = null
 
-
+    private lateinit var progressBar: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = ActivityDetailEpisodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -32,6 +36,20 @@ class DetailEpisodeActivity : AppCompatActivity(),View.OnClickListener{
         val desc = intent.getStringExtra("desc")
         val image = intent.getStringExtra("img")
         val feed = intent.getStringExtra("feed")
+
+        val progressBar = binding.header.progressIndicator
+        val appTitle = binding.header.appTitle
+        appTitle.setOnClickListener {
+            // Display progress bar
+            progressBar.visibility = View.VISIBLE
+
+            // Start navigation process
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+            // Hide progress bar after transition is complete
+            progressBar.visibility = View.GONE
+        }
 
 
         // Load the episode details into the view

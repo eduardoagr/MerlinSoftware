@@ -1,8 +1,12 @@
 package com.example.merlinsoftware.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.Window
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -29,8 +33,23 @@ class DetailPodcastActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = ActivityDetailPodcastBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val progressBar = binding.header.progressIndicator
+        val appTitle = binding.header.appTitle
+        appTitle.setOnClickListener {
+            // Display progress bar
+            progressBar.visibility = View.VISIBLE
+
+            // Start navigation process
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+            // Hide progress bar after transition is complete
+            progressBar.visibility = View.GONE
+        }
 
         val podcastID = intent.getStringExtra("id")
         val podcastTitle = intent.getStringExtra("title")
